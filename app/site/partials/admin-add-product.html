@@ -1,0 +1,34 @@
+<div class="col-md-12">
+  <!-- Product Name -->
+  <div class="form-group">
+    <label for="">Product Name:</label>
+    <input ng-model="ctrl.name" id="" placeholder="e.g. Iron Man V-Neck - White" class="form-control" type="text" required></input>
+  </div>
+  <!-- Image URL -->
+  <div class="form-group">
+    <label for="">Image URL:</label>
+    <input ng-model="ctrl.image" type="text" class="form-control" placeholder="e.g. http://bit.ly/2k4h" id="" required></input>
+  </div>
+  <!-- Description -->
+  <div class="form-group">
+    <label>Enter a Description:</label>
+    <textarea class="form-control" rows="5" ng-model="ctrl.description"></textarea>
+  </div>
+  <!-- Category -->
+  <div class="form-group">
+    <label>Category</label>
+    <select  class="form-control" ng-options="option.value as option.label for option in ctrl.categories" ng-model="ctrl.category" name="category"></select>
+  </div>
+  <!-- Price -->
+  <div class="form-group">
+    <label for="">Price:</label>
+    <input ng-model="ctrl.price" type="text" class="form-control" placeholder="" id="" required></input>
+  </div>
+  <!-- Quantity -->
+  <div class="form-group">
+    <label for="">Quantity:</label>
+    <input ng-model="ctrl.quantity" type="text" class="form-control" placeholder="" id=""></input>
+  </div>
+  <!-- Button: Add Product -->
+  <button class="btn" ng-click="ctrl.addProduct()">Add Product</button>
+</div>

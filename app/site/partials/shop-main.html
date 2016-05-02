@@ -1,0 +1,124 @@
+<nav>
+	<div class="content-wrapper">
+		<ul class="left-nav">
+			<li><a href = "#"><img src="assets/img/logo-small.png"></a></li>
+		</ul>
+		<ul class="right-nav cartBox">
+			<a data-toggle="modal" data-target="#myModal" ng-click="ctrl.openModal()"><li><i class="fa fa-shopping-cart"></i><span class="cart unselectable">Cart</span></li></a>
+		</ul>
+		<ul class="right-nav">
+			<a ng-click="ctrl.adminLogin()"><li><span class="login unselectable"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</a></span></li>
+		</ul>
+	</div>
+</nav>
+
+<section id = "#top" class="top-content" role="topbanner">
+	<div class="content-wrapper">
+		<div class="table-view">
+			<div class="table-cell">
+				<div class="content">		
+					<div class = "headline">
+						Manage Your Closet.
+					</div>
+					<div class="tagline">
+						Buy and Sell used fashion items from virtually anywhere.
+					</div>
+
+					<div>
+						<form>
+							<!-- TO DO #3: ENABLE PRODUCT SEARCH -->
+							<div class="form-container">
+								<input type="text" class="form-control"  placeholder="Search for a brand or item"  ng-model="ctrl.search">
+								<button class="search-btn" ng-click="ctrl.searchFilter()"><img src="assets/img/icon-search@2x.png"></button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="secondary-nav" role="sub-nav">
+	<div class="content-wrapper">
+		<!-- TO DO #3: SET CATEGORY SEARCH AND SET FOCUS CLASS-->
+		<ul class="product-nav">
+			<li ng-click="ctrl.filter = ''; ctrl.customFilter = ''"><a>All</a></li>
+			<li ng-repeat="category in ctrl.productSrv.categories" ng-click="ctrl.filter = category.label; ctrl.customFilter = ''"><a>{{category.label}}</a></li>
+
+			<!-- <li ng-click="ctrl.filter = 'shoes'; ctrl.customFilter = ''"><a>Shoes</a></li>
+			<li ng-click="ctrl.filter = 'shirts'; ctrl.customFilter = ''"><a>Shirts</a></li>
+			<li ng-click="ctrl.filter = 'pants'; ctrl.customFilter = ''"><a>Pants</a></li>
+			<li ng-click="ctrl.filter = 'outerwear'; ctrlcustomFilter = ''"><a>Outerwear</a></li>
+			<li ng-click="ctrl.filter = 'accessories'; ctrl.customFilter = ''"><a>Accessories</a></li> -->
+		</ul>
+	</div>
+</section>
+<section class="product-view" role="product-view">
+	<div class="content-wrapper">
+		<div class="row">
+			<!-- TODO #3: SHOW PRODUCTS -->
+
+			<div class="col-xs-12 col-sm-3" ng-repeat="product in ctrl.products | filter : {'category': ctrl.filter} | filter : ctrl.customFilter">
+				<div id="product-card" class="product-card" ng-class="{imgMaxed: ctrl.max(product.id)}">
+					<div class="product-buy" ng-click="ctrl.productSrv.cartAdd(product.id)">
+						<div class="table-view">
+							<div class="table-cell">
+								<i class="fa fa-shopping-cart"></i>
+							</div>
+						</div>
+					</div>
+					<!-- SET PRODUCT IMAGE -->
+					<span class="productMaxed" ng-class="{maxed: ctrl.max(product.id)}">We're all out for now. Sorry!</span>
+					<div ng-click="ctrl.openDetailModal(product.id)" class="product-img" style="background:url('{{product.image}}')" >
+					
+					</div>
+
+					<div class="product-info">
+						<div class="product-name">
+							<!-- SET PRODUCT NAME -->
+							{{product.name}}
+						</div>
+						<div class="product-cost">
+							<!-- SET PRODUCT PRICE WITH FILTER -->
+							{{product.price | currency}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<footer>
+	<div class = "link-lists">
+		<div class = "list-column">
+			<h5>About Us</h5>
+			<ul>Our Mission</ul>
+			<ul>Team</ul>
+			<ul>Careers</ul>
+			<ul>Terms of Use</ul>
+		</div>
+		<div class = "list-column">
+			<h5>Customer Care</h5>
+			<ul>FAQ</ul>
+			<ul>Contact</ul>
+			<ul>Payments &amp; Insurance</ul>
+			<ul>Returns &amp; Exchanges</ul>
+		</div>
+		<div class = "list-column">
+			<h5>Featured Brands</h5>
+			<ul>Adidas</ul>
+			<ul>Nike</ul>
+			<ul>H&amp;M</ul>
+			<ul>Lacoste</ul>
+			<ul>Underarmor</ul>
+		</div>
+		<div class = "list-column">
+			<h5>Follow Us</h5>
+			<ul><img src="assets/img/twitter-letter-logo.png">
+			<img src="assets/img/facebook-logo.png"></ul>
+		</div>
+	</div>
+	<div class = "endline"><p align ="center">Copyleft Shirtify LLC. 2016</p></div>
+</footer>

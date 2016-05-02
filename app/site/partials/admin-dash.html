@@ -1,0 +1,31 @@
+<p class = "title">Products</p>
+	
+
+<div ng-hide="ctrl.is_products">
+	<p>
+		You have no products
+	</p>
+</div>
+
+<button class="btn btn-danger" ng-click="ctrl.deleteAll()">Delete All</button>
+<br>
+<br>
+<div ng-show="ctrl.is_products">
+	<table class="products-list table header-list">
+		<tr>
+			<th class = "header-list">Category</th>
+			<th class = "header-list">Name</th>
+			<th class = "header-list">Price</th>
+			<th class = "header-list">Quantity</th>
+			<th class = "header-list edit-area">edit</th>
+		</tr>
+		<tr ng-repeat="product in ctrl.products">
+			<td class="longlist">{{product.category}}</td>
+			<td class="longlist">{{product.name}}</td>
+			<td class="longlist">{{product.price | currency}}</td>
+			<td class="longlist">{{product.quantity}}</td>
+			<td class="longlist edit-area"><a ng-click="ctrl.editProduct(product)">
+			<img class = "icon-image" src="assets/NewPics/edit.png"></a></td>
+		</tr>
+	</table>
+</div>

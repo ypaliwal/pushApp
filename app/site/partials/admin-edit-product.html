@@ -1,0 +1,55 @@
+<div class="col-md-12 edit-prod-page">
+	<div class="form-group">
+		<p>Name:</p>
+		<input class = "form-control" type="text" name="name" ng-model="ctrl.product.name" required>
+		<br>
+	</div>
+
+	<div>
+		<p>Image Url:</p>
+		<input class = "form-control" type="text" name="image" ng-model="ctrl.product.image" required>
+		<br>
+	</div>
+
+	<div>
+		<p>Description:</p>
+		<textarea class = "form-control aBitBigger" type="text" name="description" ng-model="ctrl.product.description" required></textarea>
+		<br>
+	</div>
+
+	<div>
+		<p>Category: {{ctrl.set_category}}</p>
+		<!-- TODO #2: Set Options -->
+		<select class="form-control" name="category" ng-options="option.value as option.label for option in ctrl.categories" ng-model="ctrl.set_category">
+		</select>
+		<br>
+	</div>
+
+	<div>
+		<p>Price:</p>
+		<input class = "form-control smaller" type="number" name="price" ng-model="ctrl.product.price" required>
+		<br>
+	</div>
+
+	<div>
+		<p>Quantity:</p>
+		<input class = "form-control smaller" type="number" name="quantity"  ng-model="ctrl.product.quantity" required>
+		<br>
+	</div>
+
+	<div>
+		<button class = "btn btn-success" type="submit" ng-click="ctrl.updateProduct() ; ctrl.backToDash()">
+		Update Product
+		</button>
+	</div>
+	<br>
+	<div>	
+		<button class = "btn btn-danger" type="submit" ng-click="ctrl.deleteProduct()">
+			{{ctrl.product_delete_btn}}
+		</button>
+		
+	</div>
+
+	</div>
+
+</div>

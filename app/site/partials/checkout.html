@@ -1,0 +1,101 @@
+<nav>
+	<div class="content-wrapper">
+		<ul class="left-nav">
+			<li><a href = "#"><img src="assets/img/logo-small.png"></a></li>
+		</ul>
+		<!-- <ul class="right-nav">
+			<a data-toggle="modal" data-target="#myModal" ng-click="ctrl.openModal()"><li><i class="fa fa-shopping-cart"></i><span class="cart">Cart</span></li></a>
+		</ul>
+		<ul class="right-nav">
+			<a ng-click="ctrl.adminLogin()"><li><span class="login"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Login</a></span></li>
+		</ul> -->
+	</div>
+</nav>
+
+<div class="container-fluid">
+	<div class="col-md-8 col-md-offset-2 bottomSpacing">
+		<!-- CART SUMMARY -->
+		<br>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Order Summary:</h3>
+			</div>
+			<div class="panel-body">
+				<!-- DISPLAY ITEMS WITHIN THE CART -->
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Item Name</th>
+							<th>Price</th>
+							<th>Quantity</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in ctrl.cart">
+							<td>{{item.name}}</td>
+							<td>{{item.price | currency}}</td>
+							<td>{{item.count}}</td>
+						</tr>
+						<tfoot style="font-weight: bold">
+							<td>Item Summary</td>
+							<td>{{ ctrl.theTotal()[0] | currency }}</td>
+							<td>{{ ctrl.theTotal()[1] }}</td>
+						</tfoot>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+		<!-- USER INFO FOR CHECKOUT -->
+		<div class="col-md-1">
+		</div>
+		<div class="col-md-5 checkoutForm">
+			<div class="form-group">
+				<label for="firstname">First Name:</label>
+				<input ng-model="ctrl.fname" type="text" class="form-control" placeholder="Enter First Name" id="firstname">
+			</div>
+			<div class="form-group">
+				<label for="address1">Address Line 1:</label>
+				<input ng-model="ctrl.add1" type="text" class="form-control" placeholder="Address" id="address1">
+			</div>
+			<div class="form-group">
+				<label for="city">City:</label>
+				<input ng-model="ctrl.city" type="text" class="form-control" id="city" placeholder="City">
+			</div>
+			<div class="form-group">
+				<label for="userEmail">Email Address:</label>
+				<input ng-model="ctrl.email" type="email" class="form-control" id="userEmail" placeholder="Enter Email ID">
+			</div>
+			<div class="form-group">
+				<label for="cvc">CVC:</label>
+				<input ng-model="ctrl.cvc" type="number" maxl="999" class="form-control" id="cvc">
+			</div>
+			<button type="submit" class="btn btn-default" ng-click="ctrl.checkout(ctrl.productSrv.getCart())">Submit</button>
+		</div>
+
+		<div class="col-md-5 checkoutForm">
+			<div class="form-group">
+				<label for="lastname">Last Name:</label>
+				<input ng-model="ctrl.lname" type="text" class="form-control" id="lastname" placeholder="Enter First Name">
+			</div>
+			<div class="form-group">
+				<label for="address2">Address Line 2:</label>
+				<input ng-model="ctrl.add2" type="text" class="form-control" id="address2" placeholder="">
+			</div>
+			<div class="form-group">
+				<label for="postalcode">Postal Code:</label>
+				<input ng-model="ctrl.postalcode" type="text" class="form-control" id="postalcode" placeholder="Postal code">
+			</div>
+			<div class="form-group">
+				<label for="ccnumber">Credit Card #:</label>
+				<input ng-model="ctrl.ccnumber" type="number" class="form-control" id="ccnumber" placeholder="">
+			</div>
+			<div class="form-group">
+				<label for="ccexpiry">Expiry Date:</label>
+				<input ng-model="ctrl.ccexpiry" type="month" class="form-control" id="ccexpiry" placeholder="Experiy Date">
+			</div>
+		</div>
+
+	</div>
+	
+</div>

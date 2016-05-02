@@ -1,0 +1,14 @@
+<p class = "title">Categories</p>
+	
+<div>
+	<table class="table table-striped">
+		<tr ng-repeat="category in ctrl.categories">
+				<td editable-text="category.label" e-form="textBtnForm" onaftersave="ctrl.updateCategory($data, category.id)">{{ category.label || "empty" }}</td>
+				<td>
+				<a class="btn btn-default" ng-click="textBtnForm.$show(); ctrl.logThis(category.label)" ng-hide="textBtnForm.$visible">edit</a>
+				<a class="btn btn-danger" ng-click="ctrl.categoryRemove(category.id)">delete</a>
+				<!-- <button type="button" class="close" style="color:red" aria-label="Close"><span aria-hidden="true" ng-click="ctrl.categoryRemove(item.id)">&times;</span></button> -->
+				</td>
+  		</tr>
+	</table>
+</div>

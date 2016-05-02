@@ -1,0 +1,27 @@
+<div class = "item-detail">
+	<h4>Product Details</h4>
+	<div id="product-card" class="product-card">
+		<a class="product-buy" ng-click="ctrl.addToCart(ctrl.product.id)">
+			<div class="table-view">
+				<div class="table-cell">
+					<i class="fa fa-shopping-cart"></i>
+				</div>
+			</div>
+		</a>
+			<div>
+				<img src = "{{ctrl.product.image}}">
+				
+			</div>
+			<div class="product-info">
+				<p>Product ID: {{ctrl.product.id}}</p>
+				<!-- Product Name:  -->{{ctrl.product.name}}
+			</div>
+			<div class="product-brand">
+					<!-- Description:--><em>{{ctrl.product.description}}</em>
+				</div>
+			<div class="product-cost">
+					<!-- Price:  -->{{ctrl.product.price | currency}}
+			</div>
+		</div>
+	</div>
+</div>
